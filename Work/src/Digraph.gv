@@ -1,25 +1,60 @@
 digraph {
+	node [color=red shape=star]
+	A
+	node [color=black shape=circle]
+	B
 	A -> B
+	node [color=red shape=star]
+	A
+	node [color=black shape=circle]
+	C
 	A -> C
+	node [color=black shape=circle]
 	C -> D
+	node [color=red shape=star]
+	A
+	node [color=black shape=circle]
+	E
 	A -> E
+	node [color=black shape=circle]
 	G -> E
+	node [color=red shape=star]
+	A
+	node [color=black shape=circle]
+	F
 	A -> F
+	node [color=black shape=circle]
 	B -> F
+	node [color=black shape=circle]
 	C -> F
+	node [color=black shape=circle]
 	D -> F
+	node [color=black shape=circle]
 	E -> F
+	node [color=black shape=circle]
 	E -> H
+	node [color=black shape=circle]
 	H -> J
+	node [color=black shape=circle]
 	Q -> L
+	node [color=black shape=circle]
 	N -> M
+	node [color=black shape=circle]
 	G -> N
+	node [color=black shape=circle]
 	H -> N
+	node [color=black shape=circle]
 	I -> N
+	node [color=black shape=circle]
 	J -> N
+	node [color=black shape=circle]
 	K -> N
+	node [color=black shape=circle]
 	M -> P
+	node [color=black shape=circle]
 	P -> Q
+	node [color=black shape=circle]
 	L -> R
+	node [color=black shape=circle]
 	R -> S
 }
