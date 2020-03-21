@@ -1,0 +1,32 @@
+DBリスト
+
+・プロジェクト名
+project_all(プロジェクト名)
+
+・プロジェクトごとのメンバーリスト
+member(プロジェクト名， 名前)
+
+・プロジェクトごとのTODO
+TODO(プロジェクト名， やることのID， やること)
+
+・依存
+connect(始点， 終点)
+
+妥協点
+メンバーは最大5人/プロジェクト
+
+
+
+
+hoge-member
+
+dir
+→SQLs       <dir>
+
+--Project1  <dir>
+----project_all.DB
+----TODO.DB
+
+--Project2  <dir>
+----project_all.DB
+----TODO.DB
