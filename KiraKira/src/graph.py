@@ -16,8 +16,62 @@ conn = sqlite3.connect(dbname)
 c = conn.cursor()
 
 # select文を実行
-# 始点と終点を取得
-c.execute("select start, end from nodes;")
+# メンバー名を取得
+c.execute("select distinct member1 from todo_and_member;")
+
+# メンバー名を格納するリスト
+members = []
+
+# select文で取得した各行に対して実行
+# 全ユーザ名を取得
+for row in c:
+    # ユーザ名が無ければスキップ
+    if str(row[0]) == "":
+        continue
+
+    # メンバーのリストに追加
+    members.append(str(row[0]))
+
+# ノードに付ける色
+colors = ["pink", "cyan", "greenyellow", "yellow", "orange"]
+
+# メンバー名と色を対応付ける辞書
+member_and_color = {}
+
+# メンバー名と色を対応付ける
+for i in range(len(members)):
+    member_and_color[members[i]] = colors[i]
+
+
+# select文を実行
+# 始点，終点，メンバー名（二人分）を取得
+c.execute("select start, end, member1, member2 from nodes, todo_and_member where start=TODO_ID order by start;")
+
+# select文で取得した各行に対して実行
+for row in c:
+    # メンバーが複数いる場合（カラムmember2が空文字列でない場合）は色を変えない
+    if str(row[3]) != "":
+        graph.attr("node", color="black")
+        continue
+    
+    # メンバーが決まっている場合（カラムmember1が空文字列でない場合）は色を付ける
+    if str(row[2]) != "":
+        # 始点を強調する
+        graph.attr("node", color="red")
+        graph.node(str(row[0]), color="black", style="filled", fillcolor=member_and_color[str(row[2])], fontcolor="black")
+        # 終点はそのまま
+        graph.attr("node", color="black")
+        graph.node(str(row[1]))
+
+    # 辺の作成
+    graph.edge(str(row[0]), str(row[1]))
+
+
+# 始点となる回数を数えて，回数の多いものに色を付ける
+"""
+# select文を実行
+# 始点を取得
+c.execute("select start from nodes;")
 
 # 始点となる回数（辞書型）
 counter = {}
@@ -64,7 +118,10 @@ for row in c:
 
     # 辺の作成
     graph.edge(str(row[0]), str(row[1]))
+"""
 
+
+# 特定のノードに色付けする時（確認用）
 """
 # 色づけしたいノード
 with_color = ["A", "B", "I", "O", "R", "S"]
@@ -88,6 +145,9 @@ for row in c:
 conn.commit()
 conn.close()
 
+
+# 画像を保存
+graph.render("../image/graph")
 
 # 画像表示
 graph.view()
