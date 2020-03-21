@@ -16,7 +16,7 @@ class Error(wx.Frame):
         self.exitBtn = wx.Button(panel,label="卵で閉じる",pos=(500,250))
         self.Bind(wx.EVT_BUTTON,self.exit,self.exitBtn)
 
-    ##ボタン実装
+    ##ボタン実装画面が消える
     def exit(self,event):
         self.Close(True)
 
@@ -41,12 +41,14 @@ class add_member(wx.Frame,):
         ##追加ボタン
         self.add1 = wx.Button(panel,label="追加",pos=(500,250))
         self.Bind(wx.EVT_BUTTON,self.add,self.add1)
-
+    ##ボタン実装、画面が消える
     def exit(self,event):
         self.Close(True)
-
+    ##データベースにaddされた人の確認及び追加
     def add(self,event):
         self.m_enter_v=self.m_enter.GetValue()
+
+
         flag=0
         c=0
         ##Project-allのDBと接続
@@ -62,7 +64,11 @@ class add_member(wx.Frame,):
                 for i in range(5):
                     if(datarow[i]=="NULL"):
                         c=i+1
-                        Project.execute('update Project_all01 set member{} = {} where Project_name="MTKirara";'.format(c,self.m_enter_v))
+                        m="member"+str(c-1)
+                        ## NULLのところを入力された人名に変更する
+                        lite='update Project_all01 set {0}="{1}" where Project_name="MTKirara";'.format(m,self.m_enter_v)
+                        print(lite)
+                        Project.execute(lite)
                         break
                     else:
                         c=c+2
@@ -74,7 +80,7 @@ class add_member(wx.Frame,):
             childFrame = Error(self)
             childID = childFrame.Show()
 
-
+    ##エラー画面の表示する関数
     def showError(self,event):
         childFrame = Error(self)
         childID = childFrame.Show()
@@ -119,9 +125,11 @@ class TodoList(wx.Frame):
         panel1.SetBackgroundColour("BLACK")
         panel1 = wx.Panel(left_panel, pos=(540,0), size=(3,3000))
         panel1.SetBackgroundColour("BLACK")
+        #チェックボックス
+
         ##メンバー表示
         flag=0
-        ##Project-allのDBと接続
+        count=0        ##Project-allのDBと接続
         connect = sqlite3.connect('Project_all.db')
         Project= connect.cursor()
         ##テーブルの作成
@@ -133,15 +141,37 @@ class TodoList(wx.Frame):
                 flag=1
                 for i in range(5):
                     if(datarow[i+1]!="NULL"):
-                        self.member_l[i]=wx.StaticText(left_panel,-1, datarow[i+1],pos=(50*(i+1),550))
-                        self.member_l[i].SetFont(font)
+                        ##メンバーの名前の表示
+                        self.member_l=wx.StaticText(right_panel,-1, datarow[i+1],pos=(100*(i+1),460))
+                        self.member_l.SetFont(font)
+                        count=count+1
                     else:
                         break
+
             else:
                 break
 
         connect.commit()
         connect.close()
+
+        ##チェックボックスの表示
+        self.checkbox_1=wx.CheckBox(right_panel, wx.ID_ANY, '参加',pos=(100,550))
+        self.checkbox_2=wx.CheckBox(right_panel, wx.ID_ANY, '参加',pos=(200,550))
+        self.checkbox_3=wx.CheckBox(right_panel, wx.ID_ANY, '参加',pos=(300,550))
+        self.checkbox_4=wx.CheckBox(right_panel, wx.ID_ANY, '参加',pos=(400,550))
+        self.checkbox_5=wx.CheckBox(right_panel, wx.ID_ANY, '参加',pos=(500,550))
+
+        ##チェックボックスの場合わけ
+        if(count<5):
+            self.checkbox_5.Disable()
+            if(count<4):
+                self.checkbox_4.Disable()
+                if(count<3):
+                    self.checkbox_3.Disable()
+                    if(count<2):
+                        self.checkbox_2.Disable()
+                        if(count<1):
+                            self.checkbox_1.Disable()
 
         ##やること入力フォーム
         self.todo_enter= wx.TextCtrl(right_panel, -1,pos=(50,200),size=(300,60))
@@ -149,26 +179,28 @@ class TodoList(wx.Frame):
 
         ##登録ボタン
         self.button_r = wx.Button(right_panel,-1, '登録する',pos=(500,700))
+        ##押すとshowChild2関数の処理に移る
         self.Bind(wx.EVT_BUTTON,self.showChild,self.button_r)
-        ##メンバー登録ボタン
-        self.button_m = wx.Button(right_panel,-1, 'add',pos=(50,550))
-        self.Bind(wx.EVT_BUTTON,self.showChild,self.button_m)
-        #チェックボックス
-        #checkbox_1 = wx.CheckBox(right_panel, wx.ID_ANY, '参加',pos=(200,550))
 
+        ##メンバー登録ボタン
+        self.button_m = wx.Button(right_panel,-1, 'add',pos=(600,550))
+        ##押すとshowChild関数の処理に移る
+        self.Bind(wx.EVT_BUTTON,self.showChild,self.button_m)
+
+        self.Show()
+##チェックボックスのidのチェックで値を得て、それとやることの入力を得て、DBに打ち込む
+##それと同時に左画面に書き出す
 
     def showChild(self,event):
         childFrame = add_member(self)
         childID = childFrame.Show()
 
-    def showChild2(self,event):
-        childFrame2=tourokuC(self)
-        childID2=childFrame2.Show()
+    #def showChild2(self,event):
+
 
 
 ####実装
 if __name__ == '__main__':
     app = wx.PySimpleApp()
-    frame = TodoList(parent=None,id=-1)
-    frame.Show()
+    TodoList(parent=None,id=-1)
     app.MainLoop()
