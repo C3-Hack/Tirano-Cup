@@ -4,7 +4,7 @@
 #=======================================
 import re
 import networkx as nx
-
+from ConnectDB import ConnectDB
 
 str = input()
 list = str.split()      #空白で分割
@@ -42,7 +42,10 @@ if (flag_del==0):
     for item in list_root:
         Graph.add_node(item)
         Graph.add_edge(item,tip)
+        ConnectDB(item,tip)
+'''
     print ("Noads:")
     print(Graph.nodes())
     print ("Edges:")
     print(Graph.edges())    
+'''
