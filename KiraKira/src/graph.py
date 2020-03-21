@@ -151,10 +151,10 @@ conn.close()
 graph.render("../image/graph")
 
 # 画像表示
-graph.view()
+#graph.view()
 
 
-# --- 画像を縮小する ---
+# --- 画像を高さ800に，アスペクト比を維持して縮小する ---
 # 画像をオープン
 image = Image.open("../image/graph.png")
 
@@ -163,3 +163,8 @@ image_resize = image.resize(size=(int(image.width/image.height*800), int(image.h
 
 # 保存
 image_resize.save("../image/graph_resized.png")
+
+# graph_windowにメンバー名と色の辞書を渡したい
+class Utilities():
+    def getMemberAndColorDict(self):
+        return member_and_color
