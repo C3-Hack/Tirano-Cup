@@ -1,25 +1,25 @@
 digraph {
-	node [color=red shape=star]
-	A
+	node [color=red]
+	A [fillcolor=red fontcolor=black style=filled]
 	node [color=black shape=circle]
 	B
 	A -> B
-	node [color=red shape=star]
-	A
+	node [color=red]
+	A [fillcolor=red fontcolor=black style=filled]
 	node [color=black shape=circle]
 	C
 	A -> C
 	node [color=black shape=circle]
 	C -> D
-	node [color=red shape=star]
-	A
+	node [color=red]
+	A [fillcolor=red fontcolor=black style=filled]
 	node [color=black shape=circle]
 	E
 	A -> E
 	node [color=black shape=circle]
 	G -> E
-	node [color=red shape=star]
-	A
+	node [color=red]
+	A [fillcolor=red fontcolor=black style=filled]
 	node [color=black shape=circle]
 	F
 	A -> F

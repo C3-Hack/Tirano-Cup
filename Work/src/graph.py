@@ -40,8 +40,8 @@ for row in c:
     # 始点となる回数が最大のノードに色付け
     if counter[row[0]] == max(counter.values()):
         # 始点を強調する
-        graph.attr("node", shape="star", color="red")
-        graph.node(str(row[0]))
+        graph.attr("node", color="red")
+        graph.node(str(row[0]), style="filled", fillcolor="red", fontcolor="black")
         # 終点はそのまま
         graph.attr("node", shape="circle", color="black")
         graph.node(str(row[1]))
