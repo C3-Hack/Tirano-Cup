@@ -3,6 +3,7 @@
 # -----------------------------------
 
 from graphviz import Digraph
+from PIL import Image
 import sqlite3
 
 # 有向グラフ
@@ -151,3 +152,14 @@ graph.render("../image/graph")
 
 # 画像表示
 graph.view()
+
+
+# --- 画像を縮小する ---
+# 画像をオープン
+image = Image.open("../image/graph.png")
+
+# リサイズ
+image_resize = image.resize(size=(int(image.width/image.height*800), int(image.height/image.height*800)))
+
+# 保存
+image_resize.save("../image/graph_resized.png")
