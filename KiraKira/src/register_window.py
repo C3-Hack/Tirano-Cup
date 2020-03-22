@@ -3,6 +3,7 @@
 # -------------
 
 import wx
+from split import Split
 
 class registerFrame(wx.Frame):
     def __init__(self):
@@ -57,11 +58,11 @@ class registerFrame(wx.Frame):
     # Enterキーに反応しない・・・ 仕方がないのでescapeキーで代用
     def onKeyDown(self, event):
         key = event.GetKeyCode()
-        if key == wx.WXK_RETURN:
-            print("ENTERキー押したね？")
-            self.writeListCtrl()
+        #if key == wx.WXK_RETURN:
+            #print("ENTERキー押したね？")
+            #self.writeListCtrl()
         
-        elif key == wx.WXK_ESCAPE:
+        if key == wx.WXK_ESCAPE:
             print("ESCAPEキー押したね？")
             self.writeListCtrl()
         
@@ -71,8 +72,22 @@ class registerFrame(wx.Frame):
 
     # ListCtrl に書き込み
     def writeListCtrl(self):
-        # 行追加
-        self.listctrl.InsertItem(self.listctrl_rows, self.textbox_console.GetValue())
+        # テキストボックスからの入力
+        str_input = self.textbox_console.GetValue()
+
+        # Split のインスタンス化
+        spl = Split()
+        # 構文チェック済みの文字列
+        syntax_checked = spl.syntax_check(str_input)
+
+        if syntax_checked == None:
+            print("チェック通らず")
+            # 行追加
+            self.listctrl.InsertItem(self.listctrl_rows, "構文エラーです")
+        else:
+            # 行追加
+            self.listctrl.InsertItem(self.listctrl_rows, syntax_checked)
+        
         # 行数 +1
         self.listctrl_rows += 1
         # テキストボックス初期化
