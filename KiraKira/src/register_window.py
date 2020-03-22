@@ -30,11 +30,6 @@ class registerFrame(wx.Frame):
         # カラム
         self.listctrl.InsertColumn(0, "log", wx.LIST_FORMAT_LEFT, 600)
 
-        # 行の追加
-        #for i in range(10):
-            #listctrl.InsertItem(i, "ありません" + str(i))
-
-
         # テキストボックス
         self.textbox_console = wx.TextCtrl(console_panel, -1, pos=(0, 770), size=(940, 40))
         self.textbox_console.SetFont(font)
@@ -44,6 +39,17 @@ class registerFrame(wx.Frame):
 
 
         # ----- info_panel ここから -----
+
+        # 部品の設定
+        # 前へボタン
+        button_prev = wx.Button(info_panel, -1, "前へ", pos=(320, 10), size=(120, 40))
+        button_prev.SetFont(font)
+        button_prev.Bind(wx.EVT_BUTTON, self.onPrevButtonClick) # ボタンを関数を関連付ける
+        # 次へボタン
+        button_next = wx.Button(info_panel, -1, "次へ", pos=(450, 10), size=(120, 40))
+        button_next.SetFont(font)
+        button_next.Bind(wx.EVT_BUTTON, self.onNextButtonClick) # ボタンを関数を関連付ける
+
         # ----- info_panel ここまで -----
     
 
@@ -71,6 +77,16 @@ class registerFrame(wx.Frame):
         self.listctrl_rows += 1
         # テキストボックス初期化
         self.textbox_console.SetValue("")
+    
+
+    # 次へボタンクリック時に呼び出される
+    def onNextButtonClick(self, event):
+        print("次へボタンをクリックした")
+    
+
+    # 前へボタンクリック時に呼び出される
+    def onPrevButtonClick(self, event):
+        print("前へボタンをクリックした")
 
 
 if __name__ == "__main__":

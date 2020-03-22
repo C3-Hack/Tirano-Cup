@@ -108,8 +108,9 @@ class mainFrame(wx.Frame):
         # ----- input_panel ここまで -----
 
     
+    # 次へボタンクリック時に呼び出される
     def onNextButtonClick(self, event):
-        print("ボタンをクリックした")
+        print("次へボタンをクリックした")
 
 
 
