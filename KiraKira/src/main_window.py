@@ -71,6 +71,7 @@ class mainFrame(wx.Frame):
         # 次へボタン
         button_next = wx.Button(input_panel, -1, "次へ", pos=(450, 10), size=(120, 40))
         button_next.SetFont(font)
+        button_next.Bind(wx.EVT_BUTTON, self.onNextButtonClick) # ボタンを関数を関連付ける
         # やることラベル
         label_todo = wx.StaticText(input_panel, -1, "やること", pos=(100, 100))
         label_todo.SetFont(font)
@@ -105,6 +106,11 @@ class mainFrame(wx.Frame):
         checkbox1 = wx.CheckBox(input_panel, -1, pos=(345, 650), size=(30, 30))
 
         # ----- input_panel ここまで -----
+
+    
+    def onNextButtonClick(self, event):
+        print("ボタンをクリックした")
+
 
 
 if __name__ == "__main__":
