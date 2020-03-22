@@ -84,26 +84,27 @@ class mainFrame(wx.Frame):
         # 登録するボタン
         button_register = wx.Button(input_panel, -1, "登録する", pos=(200, 750), size=(200, 50))
         button_register.SetFont(font)
+        button_register.Bind(wx.EVT_BUTTON, self.onRegisterButtonClick) # ボタンを関数を関連付ける
         # 画像1
         image1 = wx.StaticBitmap(input_panel, -1, bitmap=bitmap, pos=(100, 300))
         # チェックボックス1
         checkbox1 = wx.CheckBox(input_panel, -1, pos=(150, 450), size=(30, 30))
         # 画像2
-        image1 = wx.StaticBitmap(input_panel, -1, bitmap=bitmap, pos=(230, 300))
+        image2 = wx.StaticBitmap(input_panel, -1, bitmap=bitmap, pos=(230, 300))
         # チェックボックス2
-        checkbox1 = wx.CheckBox(input_panel, -1, pos=(280, 450), size=(30, 30))
+        checkbox2 = wx.CheckBox(input_panel, -1, pos=(280, 450), size=(30, 30))
         # 画像3
-        image1 = wx.StaticBitmap(input_panel, -1, bitmap=bitmap, pos=(360, 300))
+        image3 = wx.StaticBitmap(input_panel, -1, bitmap=bitmap, pos=(360, 300))
         # チェックボックス3
-        checkbox1 = wx.CheckBox(input_panel, -1, pos=(410, 450), size=(30, 30))
+        checkbox3 = wx.CheckBox(input_panel, -1, pos=(410, 450), size=(30, 30))
         # 画像4
-        image1 = wx.StaticBitmap(input_panel, -1, bitmap=bitmap, pos=(165, 500))
+        image4 = wx.StaticBitmap(input_panel, -1, bitmap=bitmap, pos=(165, 500))
         # チェックボックス4
-        checkbox1 = wx.CheckBox(input_panel, -1, pos=(215, 650), size=(30, 30))
+        checkbox4 = wx.CheckBox(input_panel, -1, pos=(215, 650), size=(30, 30))
         # 画像5
-        image1 = wx.StaticBitmap(input_panel, -1, bitmap=bitmap, pos=(295, 500))
+        image5 = wx.StaticBitmap(input_panel, -1, bitmap=bitmap, pos=(295, 500))
         # チェックボックス5
-        checkbox1 = wx.CheckBox(input_panel, -1, pos=(345, 650), size=(30, 30))
+        checkbox5 = wx.CheckBox(input_panel, -1, pos=(345, 650), size=(30, 30))
 
         # ----- input_panel ここまで -----
 
@@ -111,6 +112,11 @@ class mainFrame(wx.Frame):
     # 次へボタンクリック時に呼び出される
     def onNextButtonClick(self, event):
         print("次へボタンをクリックした")
+    
+
+    # 登録するボタンクリック時に呼び出される
+    def onRegisterButtonClick(self, event):
+        print("登録するボタンをクリックした")
 
 
 
