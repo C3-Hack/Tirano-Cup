@@ -95,7 +95,12 @@ class registerFrame(wx.Frame):
 
     # 次へボタンクリック時に呼び出される
     def onNextButtonClick(self, event):
-        print("次へボタンをクリックした")
+        # ウィンドウを閉じる
+        self.Destroy()
+
+        print("グラフ表示準備中...")
+        # graph_window.py を実行
+        import graph_window
     
 
     # 前へボタンクリック時に呼び出される
