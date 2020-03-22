@@ -46,6 +46,7 @@ class registerFrame(wx.Frame):
         button_prev = wx.Button(info_panel, -1, "前へ", pos=(320, 10), size=(120, 40))
         button_prev.SetFont(font)
         button_prev.Bind(wx.EVT_BUTTON, self.onPrevButtonClick) # ボタンを関数を関連付ける
+        button_prev.Disable()
         # 次へボタン
         button_next = wx.Button(info_panel, -1, "次へ", pos=(450, 10), size=(120, 40))
         button_next.SetFont(font)

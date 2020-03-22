@@ -4,30 +4,6 @@ digraph {
 	node [color=black]
 	B
 	A -> B
-	node [color=red]
-	A [color=black fillcolor=pink fontcolor=black style=filled]
-	node [color=black]
-	C
-	A -> C
-	node [color=red]
-	A [color=black fillcolor=pink fontcolor=black style=filled]
-	node [color=black]
-	E
-	A -> E
-	node [color=red]
-	A [color=black fillcolor=pink fontcolor=black style=filled]
-	node [color=black]
-	F
-	A -> F
-	node [color=red]
-	A [color=black fillcolor=pink fontcolor=black style=filled]
-	node [color=black]
-	Q
-	A -> Q
-	node [color=red]
-	B [color=black fillcolor=pink fontcolor=black style=filled]
-	node [color=black]
-	F
 	B -> F
 	node [color=red]
 	C [color=black fillcolor=cyan fontcolor=black style=filled]
@@ -35,45 +11,37 @@ digraph {
 	D
 	C -> D
 	node [color=red]
-	C [color=black fillcolor=cyan fontcolor=black style=filled]
-	node [color=black]
-	F
-	C -> F
-	node [color=red]
-	D [color=black fillcolor=cyan fontcolor=black style=filled]
+	D [color=black fillcolor=greenyellow fontcolor=black style=filled]
 	node [color=black]
 	F
 	D -> F
 	node [color=red]
-	E [color=black fillcolor=pink fontcolor=black style=filled]
+	E [color=black fillcolor=cyan fontcolor=black style=filled]
 	node [color=black]
 	F
 	E -> F
 	node [color=red]
-	E [color=black fillcolor=pink fontcolor=black style=filled]
+	E [color=black fillcolor=cyan fontcolor=black style=filled]
 	node [color=black]
 	H
 	E -> H
-	F -> T
 	node [color=red]
-	G [color=black fillcolor=pink fontcolor=black style=filled]
+	G [color=black fillcolor=cyan fontcolor=black style=filled]
 	node [color=black]
 	E
 	G -> E
 	node [color=red]
-	G [color=black fillcolor=pink fontcolor=black style=filled]
+	H [color=black fillcolor=pink fontcolor=black style=filled]
 	node [color=black]
-	N
-	G -> N
+	J
 	H -> J
-	H -> N
 	node [color=red]
-	I [color=black fillcolor=cyan fontcolor=black style=filled]
+	I [color=black fillcolor=greenyellow fontcolor=black style=filled]
 	node [color=black]
 	N
 	I -> N
 	node [color=red]
-	J [color=black fillcolor=pink fontcolor=black style=filled]
+	J [color=black fillcolor=cyan fontcolor=black style=filled]
 	node [color=black]
 	N
 	J -> N
@@ -83,12 +51,7 @@ digraph {
 	N
 	K -> N
 	node [color=red]
-	K [color=black fillcolor=pink fontcolor=black style=filled]
-	node [color=black]
-	M
-	K -> M
-	node [color=red]
-	L [color=black fillcolor=pink fontcolor=black style=filled]
+	L [color=black fillcolor=greenyellow fontcolor=black style=filled]
 	node [color=black]
 	R
 	L -> R
@@ -97,24 +60,30 @@ digraph {
 	node [color=black]
 	P
 	M -> P
+	node [color=red]
+	N [color=black fillcolor=cyan fontcolor=black style=filled]
+	node [color=black]
+	M
 	N -> M
-	N -> T
 	node [color=red]
 	O [color=black fillcolor=greenyellow fontcolor=black style=filled]
 	node [color=black]
 	P
 	O -> P
+	node [color=red]
+	P [color=black fillcolor=yellow fontcolor=black style=filled]
+	node [color=black]
+	Q
 	P -> Q
-	P -> T
+	node [color=red]
+	Q [color=black fillcolor=cyan fontcolor=black style=filled]
+	node [color=black]
+	L
 	Q -> L
 	node [color=red]
 	R [color=black fillcolor=greenyellow fontcolor=black style=filled]
 	node [color=black]
 	S
 	R -> S
-	node [color=red]
-	S [color=black fillcolor=greenyellow fontcolor=black style=filled]
 	node [color=black]
-	T
-	S -> T
 }

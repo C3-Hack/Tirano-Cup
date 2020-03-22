@@ -159,7 +159,10 @@ graph.render("../image/graph")
 image = Image.open("../image/graph.png")
 
 # リサイズ
-image_resize = image.resize(size=(int(image.width/image.height*800), int(image.height/image.height*800)))
+if image.height > image.width:
+    image_resize = image.resize(size=(int(image.width/image.height*800), int(image.height/image.height*800)))
+else:
+    image_resize = image_resize(size=(int(image.width/image.width*1500), int(image.height/image.width*1500)))
 
 # 保存
 image_resize.save("../image/graph_resized.png")
