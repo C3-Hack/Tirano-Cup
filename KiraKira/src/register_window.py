@@ -105,7 +105,16 @@ class registerFrame(wx.Frame):
 
     # 前へボタンクリック時に呼び出される
     def onPrevButtonClick(self, event):
-        print("前へボタンをクリックした")
+        # ウィンドウを閉じる
+        self.Destroy()
+
+        # main_window.py を実行
+        from main_window import mainFrame
+        app = wx.App()
+        frame = mainFrame()
+        frame.Show()
+        app.MainLoop()
+
 
 
 if __name__ == "__main__":

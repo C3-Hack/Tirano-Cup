@@ -111,8 +111,18 @@ class mainFrame(wx.Frame):
     
     # 次へボタンクリック時に呼び出される
     def onNextButtonClick(self, event):
-        print("次へボタンをクリックした")
-    
+
+        # ウィンドウを閉じる
+        self.Destroy()
+
+        # register_window.py を実行
+        from register_window import registerFrame
+
+        app = wx.App()
+        frame = registerFrame()
+        frame.Show()
+        app.MainLoop()
+
 
     # 登録するボタンクリック時に呼び出される
     def onRegisterButtonClick(self, event):
