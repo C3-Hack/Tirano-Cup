@@ -1,0 +1,110 @@
+digraph {
+	node [color=red]
+	A [color=black fillcolor=pink fontcolor=black style=filled]
+	node [color=black]
+	B
+	A -> B
+	node [color=red]
+	A [color=black fillcolor=pink fontcolor=black style=filled]
+	node [color=black]
+	C
+	A -> C
+	node [color=red]
+	A [color=black fillcolor=pink fontcolor=black style=filled]
+	node [color=black]
+	E
+	A -> E
+	node [color=red]
+	A [color=black fillcolor=pink fontcolor=black style=filled]
+	node [color=black]
+	F
+	A -> F
+	node [color=red]
+	B [color=black fillcolor=pink fontcolor=black style=filled]
+	node [color=black]
+	F
+	B -> F
+	node [color=red]
+	C [color=black fillcolor=cyan fontcolor=black style=filled]
+	node [color=black]
+	D
+	C -> D
+	node [color=red]
+	C [color=black fillcolor=cyan fontcolor=black style=filled]
+	node [color=black]
+	F
+	C -> F
+	node [color=red]
+	D [color=black fillcolor=cyan fontcolor=black style=filled]
+	node [color=black]
+	F
+	D -> F
+	node [color=red]
+	E [color=black fillcolor=pink fontcolor=black style=filled]
+	node [color=black]
+	F
+	E -> F
+	node [color=red]
+	E [color=black fillcolor=pink fontcolor=black style=filled]
+	node [color=black]
+	H
+	E -> H
+	F -> T
+	node [color=red]
+	G [color=black fillcolor=pink fontcolor=black style=filled]
+	node [color=black]
+	E
+	G -> E
+	node [color=red]
+	G [color=black fillcolor=pink fontcolor=black style=filled]
+	node [color=black]
+	N
+	G -> N
+	H -> J
+	H -> N
+	node [color=red]
+	I [color=black fillcolor=cyan fontcolor=black style=filled]
+	node [color=black]
+	N
+	I -> N
+	node [color=red]
+	J [color=black fillcolor=pink fontcolor=black style=filled]
+	node [color=black]
+	N
+	J -> N
+	node [color=red]
+	K [color=black fillcolor=pink fontcolor=black style=filled]
+	node [color=black]
+	N
+	K -> N
+	node [color=red]
+	L [color=black fillcolor=pink fontcolor=black style=filled]
+	node [color=black]
+	R
+	L -> R
+	node [color=red]
+	M [color=black fillcolor=pink fontcolor=black style=filled]
+	node [color=black]
+	P
+	M -> P
+	N -> M
+	N -> T
+	node [color=red]
+	O [color=black fillcolor=greenyellow fontcolor=black style=filled]
+	node [color=black]
+	P
+	O -> P
+	P -> Q
+	P -> T
+	Q -> L
+	node [color=red]
+	R [color=black fillcolor=greenyellow fontcolor=black style=filled]
+	node [color=black]
+	S
+	R -> S
+	node [color=red]
+	S [color=black fillcolor=greenyellow fontcolor=black style=filled]
+	node [color=black]
+	T
+	S -> T
+}
