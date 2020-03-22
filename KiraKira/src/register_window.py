@@ -63,7 +63,6 @@ class registerFrame(wx.Frame):
             #self.writeListCtrl()
         
         if key == wx.WXK_ESCAPE:
-            print("ESCAPEキー押したね？")
             self.writeListCtrl()
         
         else:
